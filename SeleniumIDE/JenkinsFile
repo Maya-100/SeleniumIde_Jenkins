@@ -7,18 +7,6 @@
             steps {
                 git branch: 'main', url: 'git://github.com/Maya-100/SeleniumIde_Jenkins'
             }
-        }
-        stage("Set up .Net Core") {
-            //install .Net 
-        }
-        stage("Restore dependencies") {
-           //install dependencies 
-        }
-        stage("Build") {
-            //build
-        }
-        stage("Run test") {
-            //run test
-        }
+        
     }
 }
