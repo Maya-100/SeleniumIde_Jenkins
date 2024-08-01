@@ -2,22 +2,22 @@
     agent any
 
     stages{
-        stage("") {
+        stageCheckout code {
             //checkout the repository
             steps {
                 git branch: 'main', url: 'https://github.com/Maya-100/SeleniumIde_Jenkins'
             }
         }
-        stage("") {
+        stage("Set up .Net Core") {
             //install .Net 
         }
-        stage("") {
+        stage("Restore dependencies") {
            //install dependencies 
         }
-        stage("") {
+        stage("Build") {
             //build
         }
-        stage("") {
+        stage("Run test") {
             //run test
         }
     }
