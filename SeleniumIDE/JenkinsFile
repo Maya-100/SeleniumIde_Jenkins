@@ -5,7 +5,7 @@
         stageCheckout code {
             //checkout the repository
             steps {
-                git branch: 'main', url: 'https://github.com/Maya-100/SeleniumIde_Jenkins'
+                git branch: 'main', url: 'git://github.com/Maya-100/SeleniumIde_Jenkins'
             }
         }
         stage("Set up .Net Core") {
