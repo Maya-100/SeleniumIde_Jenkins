@@ -1,0 +1,5 @@
+﻿/.vs
+*.vsidx
+/bin
+/obj
+.DS_Store
