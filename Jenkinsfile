@@ -19,7 +19,7 @@ pipeline {
                 '''
             } 
         }
-        stage('Restoring nuget packages {
+        stage('Restoring nuget packages') {
            //install dependencies
             steps {
                 bat 'dotnet restore SeleniumIde.sln'
