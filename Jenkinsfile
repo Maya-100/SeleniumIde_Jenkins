@@ -9,16 +9,16 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Maya-100/SeleniumIde_Jenkins'
             }
         }
-        stage('Set up .Net Core') {
-            //install .Net
-            steps {
-                 sh '''
-                 echo Installing .Net SDK 6.0
-                // NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-                // brew install --cask dotnet-sdk6-0-132
-                 '''
-            } 
-        }
+        // stage('Set up .Net Core') {
+        //     //install .Net
+        //     steps {
+        //          sh '''
+        //          echo Installing .Net SDK 6.0
+        //         // NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+        //         // brew install --cask dotnet-sdk6-0-132
+        //          '''
+        //     } 
+        // }
         stage('Restoring nuget packages') {
            //install dependencies
             steps {
