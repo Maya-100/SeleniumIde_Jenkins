@@ -22,19 +22,19 @@ pipeline {
         stage('Restoring nuget packages') {
            //install dependencies
             steps {
-                sh 'dotnet restore SeleniumIde.sln'
+                sh '/opt/homebrew/bin/dotnet restore SeleniumIde.sln'
             } 
         }
         stage('Build') {
             //build
             steps {
-                sh 'dotnet build SeleniumIde.sln -- configuration Release'
+                sh '/opt/homebrew/bin/dotnet build SeleniumIde.sln -- configuration Release'
             }
         }
         stage('Run test') {
             //run test
             steps {
-                sh 'dotnet test SeleniumIde.sln --logger "trx;LogFileName=TestResults.trx"'
+                sh '/opt/homebrew/bin/dotnet test SeleniumIde.sln --logger "trx;LogFileName=TestResults.trx"'
             }
         }
     }
