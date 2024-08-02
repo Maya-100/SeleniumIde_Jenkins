@@ -1,4 +1,4 @@
-﻿
+
 pipeline {
     agent any
 
@@ -6,7 +6,7 @@ pipeline {
         stageCheckout code {
             //checkout the repository
             steps {
-                git branch: 'main', url: 'https://github.com/Maya-100/SeleniumIde_Jenkins/SeleniumIDE'
+                git branch: 'main', url: 'https://github.com/Maya-100/SeleniumIde_Jenkins'
             }
         stage('Set up .Net Core') {
             //install .Net
