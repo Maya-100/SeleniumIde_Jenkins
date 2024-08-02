@@ -3,11 +3,12 @@ pipeline {
     agent any
 
     stages{
-        stageCheckout code {
+        stage('Checkout code') {
             //checkout the repository
             steps {
                 git branch: 'main', url: 'https://github.com/Maya-100/SeleniumIde_Jenkins'
             }
+        }
         stage('Set up .Net Core') {
             //install .Net
             steps {
@@ -37,16 +38,20 @@ pipeline {
                 bat 'dotnet test SeleniumIde.sln --logger "trx;LogFileName=TestResults.trx"'
             }
         }
+    }
 
-        post {
-            always {
-                archiveArtifacts artifacts: '**/TestResults/*.trx', allowEmptyArchive: true
-                step([
-                    $class: 'MSTestPublisher',
-                    testResultsFile: TestResults.trx
-                ])
-        
+    post {
+        always {
+            archiveArtifacts artifacts: '**/TestResults/*.trx', allowEmptyArchive: true
+            step([
+                $class: 'MSTestPublisher',
+                testResultsFile: TestResults.trx
+            ])
+            
+        }
     }
 }
+
+
 
 
