@@ -12,30 +12,29 @@ pipeline {
         stage('Set up .Net Core') {
             //install .Net
             steps {
-                bat '''
+                sh '''
                 echo Installing .Net SDK 6.0
-                curl -l -o dotnet-sdk-6.0.132-osx-arm64.pkg https://download.visualstudio.microsoft.com/download/pr/e3da35eb-fa30-4668-be20-8e40c53c580b/506b1cfe85be2a73f772e4089e7d95d2/dotnet-sdk-6.0.132-osx-arm64.pkg
-                echo installing dotnet-sdk-6.0.132-osx-arm64.pkg
-                dotnet-sdk-6.0.132-osx-arm64.pkg/quiet/norestart
+                curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh
+                brew install --cask dotnet-sdk6-0-132
                 '''
             } 
         }
         stage('Restoring nuget packages') {
            //install dependencies
             steps {
-                bat 'dotnet restore SeleniumIde.sln'
+                sh 'dotnet restore SeleniumIde.sln'
             } 
         }
         stage('Build') {
             //build
             steps {
-                bat 'dotnet build SeleniumIde.sln -- configuration Release'
+                sh 'dotnet build SeleniumIde.sln -- configuration Release'
             }
         }
         stage('Run test') {
             //run test
             steps {
-                bat 'dotnet test SeleniumIde.sln --logger "trx;LogFileName=TestResults.trx"'
+                sh 'dotnet test SeleniumIde.sln --logger "trx;LogFileName=TestResults.trx"'
             }
         }
     }
@@ -51,7 +50,4 @@ pipeline {
         }
     }
 }
-
-
-
 
