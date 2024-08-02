@@ -14,7 +14,7 @@ pipeline {
             steps {
                 sh '''
                 echo Installing .Net SDK 6.0
-                /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+                NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
                 brew install --cask dotnet-sdk6-0-132
                 '''
             } 
