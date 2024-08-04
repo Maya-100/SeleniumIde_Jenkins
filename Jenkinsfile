@@ -28,7 +28,7 @@ pipeline {
         stage('Build') {
             //build
             steps {
-                sh '/opt/homebrew/bin/dotnet build SeleniumIde.sln -- configuration Release'
+                sh '/opt/homebrew/bin/dotnet build SeleniumIde.sln --configuration Release'
             }
         }
         stage('Run test') {
